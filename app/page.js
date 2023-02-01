@@ -11,7 +11,6 @@ export default async function Home() {
 
   const popular = await getAnimeList('popular')
   const trending = await getAnimeList('trending')
-  const random = [await getAnimeList('random-anime')]
   const recent = await getAnimeList('recent-episodes')
 
   return (
