@@ -2,11 +2,6 @@ import { AnimeSection, Card, Slider } from "@/components"
 import { getAnimeCoverImage, getAnimeList } from "@/functions/getAnimeFn"
 import Image from "next/image"
 
-
-
-
-
-
 export default async function Home() {
 
   const popular = await getAnimeList('popular')
@@ -16,7 +11,7 @@ export default async function Home() {
   return (
     <main className="bg-gray-900 pb-5 w-full px-2 sm:px-0 ">
       <div className="container h-full w-full mx-auto  rounded-lg overflow-hidden">
-        <Slider data={trending} />
+        <Slider data={popular} />
         <br />
         <section className="flex flex-col sm:flex-row w-full">
           <div className="sm:w-9/12">
