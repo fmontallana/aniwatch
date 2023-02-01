@@ -8,7 +8,7 @@ function AnimeSection({ anime: animeList, section }) {
                 <p className="flex-1 text-xl font-bold fs-125">{section}</p>
                 <button className="text-sm  sm:w-1/12 bg-gray-800 mx-1 py-1 px-2 rounded ">View All</button>
             </div>
-            <div className="flex  sm:flex-wrap gap-3 ">
+            <div className="flex  sm:flex-wrap gap-3 overflow-x-scroll sm:overflow-x-hidden">
                 {animeList?.map((anime) => {
                     return (
                         <Card key={anime.id} title={anime.title.userPreferred} image={anime.image} />
