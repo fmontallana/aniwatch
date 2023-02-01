@@ -21,7 +21,7 @@ function Slider({ data }) {
     }
 
     useEffect(() => {
-        const unsubscribe = setTimeout(forward, 3000)
+        const unsubscribe = setTimeout(forward, 5000)
 
         return () => {
             clearTimeout(unsubscribe)

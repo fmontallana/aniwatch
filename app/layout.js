@@ -13,7 +13,7 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className={hubotSans.className}>
+      <body className={`bg-gray-900  ${hubotSans.className}`}>
         <Navbar />
         {children}
         <Footer />

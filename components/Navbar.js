@@ -1,12 +1,13 @@
+import Link from 'next/link'
 import React from 'react'
 
 function Navbar() {
     return (
         <nav
-            className='h-12 bg-gray-900 text-white'
+            className='h-12 text-white'
         >
             <div className='container px-2 sm:px-0 mx-auto flex justify-between items-center h-full '>
-                <div className='flex justify-start items-center'>
+                <div className='flex justify-start items-center gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'>
 
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -25,12 +26,13 @@ function Navbar() {
                             d="M80 160h352M80 256h352M80 352h352"
                         />
                     </svg>
-                    <h1 className='hidden sm:block  text-lg text-900-125'>menu</h1>
+                    <h1 className='hidden sm:block  text-lg text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'>menu</h1>
                 </div>
 
-                <h1 className='text-2xl text-900-125'>aniwatch</h1>
+                <Link href={'/'} className='text-2xl text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]'>aniwatch</Link>
 
-                <div className='flex justify-end items-center' >
+                <div className='flex justify-end items-center gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]' >
+                    <h1 className='hidden sm:block text-lg text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'>search</h1>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="ionicon"
@@ -55,7 +57,6 @@ function Navbar() {
                             d="M338.29 338.29 448 448"
                         />
                     </svg>
-                    <h1 className='hidden sm:block text-lg text-900-125'>search</h1>
                 </div>
             </div>
         </nav>

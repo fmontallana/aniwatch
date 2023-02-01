@@ -11,7 +11,7 @@ function AnimeSection({ anime: animeList, section }) {
             <div className="flex  sm:flex-wrap gap-3 overflow-x-scroll sm:overflow-x-hidden">
                 {animeList?.map((anime) => {
                     return (
-                        <Card key={anime.id} title={anime.title.userPreferred} image={anime.image} />
+                        <Card key={anime.id} id={anime.id} title={anime.title.userPreferred} image={anime.image} />
                     )
                 })}
             </div>

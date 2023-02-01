@@ -12,8 +12,14 @@ export async function getAnimeCoverImage(title) {
 }
 
 export async function getAnimeList(title) {
-    const search = await fetch(`${process.env.API_BASE_URL}/meta/anilist/${title}`, { cache: "no-cache" })
+    const search = await fetch(`${process.env.API_BASE_URL}/meta/anilist/${title}`, { next: { revalidate: 10 } })
     const data = await search.json()
     // console.log(data)
     return data.results
+}
+
+export async function getAnimeInfo(id) {
+    const search = await fetch(`${process.env.API_BASE_URL}/meta/anilist/info/${id}`)
+    const data = await search.json()
+    return data
 }
