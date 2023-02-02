@@ -12,6 +12,7 @@ function SliderItem({ data }) {
                 <Image
                     className='hidden sm:block rounded-lg'
                     src={cover}
+                    priority
                     fill
                     style={{ objectFit: "cover" }}
                 />

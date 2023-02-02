@@ -20,7 +20,6 @@ export default function Ranking({ data: popular }) {
                                 <Image src={anime.image} fill style={{ objectFit: "cover" }} />
                             </div>
                             <p className="flex-1 z-10 drop-shadow-[2px_2px_rgba(0,0,0)] text-slate-100 font-black fs-125">{anime.title.userPreferred}</p>
-
                         </Link>
                     )
                 })}
