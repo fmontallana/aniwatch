@@ -33,7 +33,7 @@ export default async function Info({ params }) {
 
     return (
         <>
-            <div className="relative container mx-auto h-full w-full">
+            <div className="relative container pt-36 mx-auto h-full w-full">
                 <section className=" container mx-auto relative flex flex-col justify-center sm:justify-end items-start gap-3 h-full sm:w-9/12  rounded-lg overflow-hidden px-5 pt-10 text-slate-100">
                     <h1
                         className={`text-slate-50 text-2xl sm:text-4xl font-black fs-125 line-clamp-2 sm:line-clamp-none `}> {title.romaji} </h1>
