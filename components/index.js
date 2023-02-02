@@ -6,7 +6,9 @@ import Slider from "./Slider";
 import SliderItem from "./SliderItem";
 import Ranking from "./Ranking";
 import EpisodeThumb from "./EpisodeThumb";
+import PlayerSection from "./PlayerSection";
+import HLSPlayer from "./HLSPlayer";
 
 export {
-    Navbar, Card, AnimeSection, Footer, Slider, SliderItem, Ranking, EpisodeThumb
+    Navbar, Card, AnimeSection, Footer, Slider, SliderItem, Ranking, EpisodeThumb, PlayerSection, HLSPlayer
 }

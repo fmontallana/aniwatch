@@ -23,3 +23,11 @@ export async function getAnimeInfo(id) {
     const data = await search.json()
     return data
 }
+
+export async function getAnimeStreamingLinks(episodeId) {
+    const search = await fetch(`${process.env.API_BASE_URL}/meta/anilist/watch/${episodeId}`)
+    const data = await search.json()
+    return data
+}
+
+
