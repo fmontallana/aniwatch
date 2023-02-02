@@ -38,13 +38,13 @@ export default async function Info({ params }) {
                     <h1
                         className={`text-slate-50 text-2xl sm:text-4xl font-black fs-125 line-clamp-2 sm:line-clamp-none `}> {title.romaji} </h1>
                     <div className="flex justify-center items-center gap-1">
-                        <span className="h-4 w-auto px-2  rounded text-xs"
+                        <span className="h-4 w-auto px-2  rounded shadow uppercase text-xs"
                             style={{ backgroundColor: color }}>{releaseDate}</span>
-                        <span className="h-4 w-auto px-2  rounded text-xs"
+                        <span className="h-4 w-auto px-2  rounded shadow uppercase text-xs"
                             style={{ backgroundColor: color }}>{subOrDub}</span>
-                        <span className="h-4 w-auto px-2  rounded text-xs"
+                        <span className="h-4 w-auto px-2  rounded shadow capitalize text-xs"
                             style={{ backgroundColor: color }}>{status}</span>
-                        <span className="h-4 w-auto px-2  rounded text-xs"
+                        <span className="h-4 w-auto px-2  rounded shadow uppercase text-xs"
                             style={{ backgroundColor: color }}>{type}</span>
                     </div>
                     <p className="text-xs">Category: {genres?.join(" · ")}</p>

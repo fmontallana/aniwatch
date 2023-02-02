@@ -29,7 +29,7 @@ function Navbar() {
                     <h1 className='hidden sm:block  text-lg text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'>menu</h1>
                 </div>
 
-                <Link href={'/'} className='text-2xl text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]'>aniwatch</Link>
+                <Link href={'/'} className='text-2xl z-10 text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]'>aniwatch</Link>
 
                 <div className='flex justify-end items-center gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]' >
                     <h1 className='hidden sm:block text-lg text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'>search</h1>

@@ -12,7 +12,7 @@ export async function getAnimeCoverImage(title) {
 }
 
 export async function getAnimeList(title) {
-    const search = await fetch(`${process.env.API_BASE_URL}/meta/anilist/${title}`, { next: { revalidate: 10 } })
+    const search = await fetch(`${process.env.API_BASE_URL}/meta/anilist/${title}`, { next: { revalidate: 60 } })
     const data = await search.json()
     // console.log(data)
     return data.results
