@@ -14,8 +14,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'gogocdn.net',
       },
-
-
+      {
+        protocol: 'https',
+        hostname: 'artworks.thetvdb.com',
+      },
     ],
   },
   experimental: {
