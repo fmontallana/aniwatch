@@ -17,7 +17,7 @@ async function Card({ id, title, image }) {
                         className="transition-all ease-in-out group-hover:scale-105 group-hover:grayscale"
                         src={image}
                         placeholder={"blur"}
-                        blurDataURL={rgbDataURL(color)}
+                        blurDataURL={rgbDataURL("#1f2937")}
                         width={190}
                         height={280}
                         // fill

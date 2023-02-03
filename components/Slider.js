@@ -11,14 +11,12 @@ function Slider({ data: trending }) {
     const forward = () => {
         const isLastSlide = slideCount === data.length - 1
         const currentSlide = isLastSlide ? 0 : slideCount + 1
-        console.log(slideCount + "forward")
         setSlideCount(currentSlide)
     }
 
     const backward = () => {
         const isFirstSlide = slideCount === 0
         const currentSlide = isFirstSlide ? data.length - 1 : slideCount - 1
-        console.log(slideCount + "backward")
         setSlideCount(currentSlide)
     }
 
