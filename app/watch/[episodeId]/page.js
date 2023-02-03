@@ -17,7 +17,7 @@ export default async function Watch({ params }) {
     })
 
     // check if there is 1080p
-    const url = src.length === 1 ? src[1] : src[0]
+    const url = src.length === 1 ? src[0] : src[1]
 
     return (
         <div className='h-screen w-full'>
