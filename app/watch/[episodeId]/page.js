@@ -11,13 +11,17 @@ export default async function Watch({ params }) {
     if (ep.message) return notFound()
 
 
-    const url = await ep?.sources?.filter((src, index) => {
-        return index === 0
+    const src = await ep?.sources?.filter((src, index) => {
+
+        return index === 3 || index === 4
     })
+
+    // check if there is 1080p
+    const url = src.length === 1 ? src[1] : src[0]
 
     return (
         <div className='h-screen w-full'>
-            <PlayerSection src={url[0].url} />
+            <PlayerSection src={url.url} />
         </div>
     )
 }
