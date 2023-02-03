@@ -7,38 +7,38 @@ export default function Ranking({ data: popular }) {
         <section className=" flex-1  rounded-lg sm:px-3 py-2 space-y-3">
             <h1 className="text-white text-lg font-bold fs-125">Popular Anime</h1>
             {/* list */}
-            <ul className=" space-y-2 text-white">
+            <ul className="flex flex-wrap justify-center items-center  gap-1 sm:block w-full text-white">
                 {popular.map((anime, index) => {
                     return (
-                        <Link key={anime.id} className={`relative cursor-pointer flex justify-center items-center h-16 px-2  gap-1 rounded overflow-hidden group  z-10`} href={`/info/${anime.id}`}>
+                        <Link key={anime.id} className={`relative flex-shrink-0 cursor-pointer flex justify-center items-center h-16 w-[46vw] sm:w-full  gap-1 rounded overflow-hidden group z-10`} href={`/info/${anime.id}`}>
 
                             <div className="absolute w-full h-full grayscale group-hover:grayscale-0 transition-all ease-in-out ">
                                 <Image
                                     src={anime.cover}
                                     placeholder="blur"
                                     blurDataURL={rgbDataURL("#1f2937")}
-                                    // fill
-                                    // sizes="3rem"
-                                    height={64}
-                                    width={400}
+                                    fill
+                                    sizes="40rem"
+                                    // height={64}
+                                    // width={400}
                                     style={{ objectFit: "cover", backdropFilter: "grayscale(100%)" }}
                                     alt={anime.cover} />
                                 <div className="absolute h-full w-full bg-gradient-to-l from-gray-900"></div>
                             </div>
-                            <span className="relative w-1/12 z-10 text-5xl font-black fs-125 italic drop-shadow-[4px_4px_rgba(0,0,0)] ">{index + 1}</span>
-                            <div className=" relative w-2/12 h-full flex-shrink-0 rounded overflow-hidden">
+                            <span className="relative grid place-content-center  w-3/12 z-10 text-4xl fs-100 sm:text-5xl sm:font-black sm:fs-125 italic drop-shadow-[4px_4px_rgba(0,0,0)] ">{index + 1}</span>
+                            <div className=" absolute left-0 w-3/12 h-full flex-shrink-0 rounded-l overflow-hidden">
                                 <Image
                                     src={anime.image}
                                     placeholder="blur"
                                     blurDataURL={rgbDataURL("#1f2937")}
-                                    height={64}
-                                    width={46}
-                                    // sizes="2rem"
-                                    // fill
+                                    // height={64}
+                                    // width={46}
+                                    sizes="30rem"
+                                    fill
                                     style={{ objectFit: "cover" }}
                                     alt={anime.image} />
                             </div>
-                            <p className="flex-1 z-10 drop-shadow-[2px_2px_rgba(0,0,0)] text-slate-100 font-black fs-125">{anime.title.userPreferred}</p>
+                            <p className="relative px-2 flex-1 z-10 drop-shadow-[2px_2px_rgba(0,0,0)] text-slate-100 text-xs sm:text-sm sm:font-black sm:fs-125">{anime.title.userPreferred}</p>
                         </Link>
                     )
                 })}

@@ -23,7 +23,7 @@ function Navbar() {
 
     return (
         <nav
-            className='h-auto flex flex-col space-y-3 py-3 text-white'
+            className='h-auto flex flex-col  space-y-3 py-3 text-white'
         >
             <div className='container px-2 sm:px-0 mx-auto flex justify-between items-center h-full '>
                 <div className='flex flex-1 justify-start items-center gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'>
@@ -141,10 +141,6 @@ function Navbar() {
                     </button>
                 </form>
             </div>}
-            <div className='container w-full mx-auto px-2'>
-
-                {/* <SearchList query={searchTerm} /> */}
-            </div>
         </nav>
     )
 }

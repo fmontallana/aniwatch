@@ -12,9 +12,9 @@ export default async function Home() {
   return (
     <main className="pb-5 w-full px-2 sm:px-0 ">
       <div className="container h-full w-full mx-auto  rounded-lg overflow-hidden">
-        <Slider data={popular} />
+        <Slider data={trending} />
         <br />
-        <section className="flex flex-col sm:flex-row w-full">
+        <section className="flex flex-col-reverse sm:flex-row w-full">
           <div className="sm:w-9/12">
             <AnimeSection section={"Trending"} anime={trending} />
             <br />
