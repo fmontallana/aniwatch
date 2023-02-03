@@ -6,7 +6,7 @@ import { rgbDataURL } from "@/functions/dynamicPlaceholder"
 export default function EpisodeThumb({ data: ep, color = "#11508b" }) {
 
     return (
-        <Link className="h-full group" id={ep.id} href={`/watch/${ep.id}`}  >
+        <Link className="h-full group" id={ep.id} href={`/watch/${ep.id}`} target={"_blank"} referrerPolicy="no-referrer" >
             <div className="relative flex justify-center items-center flex-shrink-0 h-full w-52 bg-slate-900 rounded overflow-hidden border border-slate-400 "  >
                 <Image
                     src={ep.image}

@@ -33,7 +33,8 @@ export default function Background({ cover, image }) {
             <div style={{
                 backgroundImage: `url("${width > 640 ? cover : image}")`,
                 backgroundRepeat: "no-repeat",
-                backgroundSize: "cover"
+                backgroundSize: "cover",
+                backgroundPosition: "center"
             }} className="absolute h-5/6 w-full">
                 {/* <Image
                     src={width < 640 ? image : cover}

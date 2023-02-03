@@ -20,7 +20,7 @@ export default function Ranking({ data: popular }) {
                                     // fill
                                     // sizes="3rem"
                                     height={64}
-                                    width={296}
+                                    width={400}
                                     style={{ objectFit: "cover", backdropFilter: "grayscale(100%)" }}
                                     alt={anime.cover} />
                                 <div className="absolute h-full w-full bg-gradient-to-l from-gray-900"></div>
