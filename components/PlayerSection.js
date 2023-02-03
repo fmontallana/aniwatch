@@ -10,7 +10,7 @@ export default function PlayerSection({ sources }) {
         <div className="absolute top-0 left-0 h-screen w-full">
 
             <HLSPlayer
-                src={sources[4].url}
+                src={sources[4]?.url | sources[0]?.url}
 
             />
         </div>
