@@ -6,7 +6,7 @@ export default async function Watch({ params }) {
 
     const ep = await getAnimeStreamingLinks(params.episodeId)
 
-    const url = ep.sources.filter((src, index) => {
+    const url = await ep?.sources?.filter((src, index) => {
         return index === 0
     })
 
