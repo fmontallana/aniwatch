@@ -4,8 +4,8 @@ import Image from "next/image"
 import Link from "next/link"
 import { Suspense } from "react"
 
-async function Card({ id, title, image }) {
-
+async function Card({ data }) {
+    const { id, title, image, type, episodeId, episodeTitle, episodeNumber } = data
     const { color } = await getAnimeInfo(id)
 
     return (
@@ -13,6 +13,7 @@ async function Card({ id, title, image }) {
             <Link href={`/info/${id}`}  >
                 {/* <h1 className="absolute top-5 left-5 font-black text-9xl text-white fs-125 italic">{rank}</h1> */}
                 <div style={{ borderColor: color }} className="relative flex justify-center rounded-lg overflow-hidden h-[255px] w-full border-b ">
+                    <h1 style={{ backgroundColor: color }} className="absolute rounded right-0 text-white text-xs px-2 m-1 z-20 transition ease-in-out shadow">{episodeNumber ? "EP " + episodeNumber : type}</h1>
                     <Image
                         className="transition-all ease-in-out group-hover:scale-105 group-hover:grayscale"
                         src={image}
@@ -26,7 +27,9 @@ async function Card({ id, title, image }) {
                         style={{ objectFit: "cover" }}
                         alt={title + " thumbnail"}
                     />
-                    <p className=" absolute bottom-0 left-0 w-full text-sm text-white line-clamp-2 px-2 py-1 bg-gradient-to-t from-gray-900 ">{title}</p>
+
+                    <p className=" absolute bottom-0 left-0 h-20 w-full text-xs text-white px-2 py-1 bg-gradient-to-t from-gray-900 flex items-end">{title.userPreferred}</p>
+
                 </div>
             </Link>
         </div>

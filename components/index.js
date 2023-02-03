@@ -8,7 +8,8 @@ import Ranking from "./Ranking";
 import EpisodeThumb from "./EpisodeThumb";
 import PlayerSection from "./PlayerSection";
 import HLSPlayer from "./HLSPlayer";
+import SearchList from "./SearchList";
 
 export {
-    Navbar, Card, AnimeSection, Footer, Slider, SliderItem, Ranking, EpisodeThumb, PlayerSection, HLSPlayer
+    SearchList, Navbar, Card, AnimeSection, Footer, Slider, SliderItem, Ranking, EpisodeThumb, PlayerSection, HLSPlayer
 }

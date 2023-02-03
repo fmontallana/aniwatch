@@ -64,9 +64,9 @@ export default async function Info({ params }) {
 }
 
 export async function generateStaticParams() {
-    const popular = await getAnimeList("popular")
-    const trending = await getAnimeList("trending")
-    const recent = await getAnimeList("recent-episodes")
+    const { results: popular } = await getAnimeList('popular')
+    const { results: trending } = await getAnimeList('trending')
+    const { results: recent } = await getAnimeList('recent-episodes')
     const results = [...popular, ...trending, ...recent]
 
     return results.map(x => ({

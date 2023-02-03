@@ -5,9 +5,9 @@ import { Suspense } from "react"
 
 export default async function Home() {
 
-  const popular = await getAnimeList('popular')
-  const trending = await getAnimeList('trending')
-  const recent = await getAnimeList('recent-episodes')
+  const { results: popular } = await getAnimeList('popular')
+  const { results: trending } = await getAnimeList('trending')
+  const { results: recent } = await getAnimeList('recent-episodes')
 
   return (
     <main className="pb-5 w-full px-2 sm:px-0 ">
@@ -18,7 +18,7 @@ export default async function Home() {
           <div className="sm:w-9/12">
             <AnimeSection section={"Trending"} anime={trending} />
             <br />
-            <AnimeSection section={"Recently Added"} anime={recent} />
+            <AnimeSection section={"Recent Episodes"} anime={recent} />
           </div>
 
           <br />
