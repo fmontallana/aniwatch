@@ -22,13 +22,13 @@ function Navbar() {
     }, [searchTerm, showSearch])
 
     //search input threshold
-    // useEffect(() => {
-    //     const hide = setTimeout(() => {
-    //         if (showSearch) setSearchTerm("")
-    //     }, 10000)
+    useEffect(() => {
+        const hide = setTimeout(() => {
+            if (showSearch) setSearchTerm("")
+        }, 10000)
 
-    //     return () => clearTimeout(hide)
-    // }, [searchTerm])
+        return () => clearTimeout(hide)
+    }, [searchTerm])
 
     const handleSearchInput = (e) => {
         setSearchTerm(e.target.value)
@@ -145,24 +145,28 @@ function Navbar() {
             </div>
 
             {/* search input on mobile */}
-            {showSearch && <div className='sm:hidden px-2 container flex flex-1 justify-end items-center w-full mx-auto gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] transition-all ease-in duration-1000' >
-                <form onSubmit={(e) => handleSubmit(e)} className='flex justify-center items-center w-full transition-all ease-in-out'>
+            {showSearch && <>
+                <div className='sm:hidden px-2 container flex flex-1 justify-end items-center w-full mx-auto gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] transition-all ease-in duration-1000' >
+                    {/* <form onSubmit={(e) => handleSubmit(e)} className='flex justify-center items-center w-full transition-all ease-in-out'> */}
                     <input
                         className=' bg-slate-100 text-gray-900 px-2 h-8 w-full rounded '
                         type="text"
                         value={searchTerm}
                         onChange={handleSearchInput}
+                        placeholder='search'
                     />
                     {/* <button
                         className='px-2 h-8 text-sm text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] border border-r-slate-100 rounded-r'
                         type={searchTerm.length > 0 ? "submit" : "button"} >
                         search
                     </button> */}
-                </form>
-            </div>}
-            <div className='sm:hidden w-full px-2 transition-all ease-in duration-1000'>
-                <SearchList query={search} setSearchTerm={setSearchTerm} />
-            </div>
+                    {/* </form> */}
+
+                </div>
+                <div className='sm:hidden w-full px-2 transition-all ease-in duration-1000'>
+                    <SearchList query={search} setSearchTerm={setSearchTerm} />
+                </div>
+            </>}
         </nav>
     )
 }

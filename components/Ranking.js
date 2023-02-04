@@ -7,12 +7,12 @@ export default function Ranking({ data: popular }) {
         <section className=" flex-1  rounded-lg sm:px-3 py-2 space-y-3">
             <h1 className="text-white text-lg font-bold fs-125">Popular Anime</h1>
             {/* list */}
-            <ul className="flex flex-wrap justify-center items-center  gap-1 sm:block w-full text-white">
+            <ul className="flex flex-wrap justify-start items-center gap-x-2 sm:block w-full text-white">
                 {popular.map((anime, index) => {
                     return (
-                        <Link key={anime.id} className={`relative flex-shrink-0 cursor-pointer flex justify-center items-center h-16 w-[46vw] sm:w-full  gap-1 rounded overflow-hidden group z-10`} href={`/info/${anime.id}`}>
+                        <Link key={anime.id} className={`relative flex-shrink-0 cursor-pointer flex justify-center items-center h-16 w-[46vw] sm:w-full gap-1 rounded overflow-hidden group z-10`} href={`/info/${anime.id}`}>
 
-                            <div className="absolute w-full h-full grayscale group-hover:grayscale-0 transition-all ease-in-out ">
+                            <div className="absolute w-full h-full sm:grayscale sm:group-hover:grayscale-0 group-hover:grayscale transition-all ease-in-out ">
                                 <Image
                                     src={anime.cover}
                                     placeholder="blur"

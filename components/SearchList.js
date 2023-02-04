@@ -7,17 +7,17 @@ import Link from 'next/link'
 
 export default function SearchList({ query, setSearchTerm }) {
 
-    if (query.length === 0) return null
 
 
     const [searchResults, setSearchResults] = useState([])
     const [loading, setLoading] = useState(false)
 
     useEffect(() => {
-        if (query.length < 3) return
+        if (query.length < 1) return
         getSearchResult(query)
     }, [query])
 
+    if (query.length === 0) return null
 
     const getSearchResult = async (query) => {
 
@@ -39,10 +39,11 @@ export default function SearchList({ query, setSearchTerm }) {
         setSearchResults([])
     }
 
-    if (loading) return <p>Searching for {query}...</p>
+    if (loading) return <p>Searching for <em>{query}</em>...</p>
 
     return (
         <div className=' flex flex-col flex-shrink-0 gap-2  h-96 w-full overflow-y-scroll  '>
+            <p>Search Results for <b>{query}</b> :</p>
             {searchResults?.results?.map((anime) => {
                 return (
                     <Link key={anime.id}

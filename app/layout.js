@@ -2,6 +2,8 @@ import "./globals.css"
 
 import localFont from "@next/font/local"
 import { Footer, Navbar } from "@/components"
+import { Suspense } from "react"
+import Loading from "./loading"
 
 const hubotSans = localFont({ src: "../lib/fonts/Hubot-Sans.woff2" })
 
@@ -15,7 +17,9 @@ export default function RootLayout({ children }) {
       <head />
       <body className={`bg-gray-900  ${hubotSans.className}`}>
         <Navbar />
-        {children}
+        <Suspense fallback={<Loading />}>
+          {children}
+        </Suspense>
         <Footer />
       </body>
     </html>

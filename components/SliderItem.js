@@ -5,6 +5,7 @@ import Link from 'next/link'
 function SliderItem({ data }) {
     const { id, title, cover, description, image } = data
 
+
     return (
         <div className="flex flex-shrink-0  items-start h-full w-full ">
             <div className="relative h-full flex-1 rounded-lg">
@@ -27,7 +28,7 @@ function SliderItem({ data }) {
                         <p className="w-5/6 sm:w-3/6 text-sm sm:text-lg line-clamp-4">{description}</p>
                         <Link href={`/info/${id}`} >
 
-                            <button className="bg-blue-600 py-2 px-4 font-semibold fs-100 rounded z-[14]">Watch Now</button>
+                            <button className="bg-blue-800 ring ring-blue-100 py-2 px-4 font-semibold fs-100 rounded z-[14]">Watch now</button>
                         </Link>
                     </div>
                     <div className="absolute right-0 h-full w-full sm:w-3/12">
