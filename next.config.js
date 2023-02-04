@@ -23,6 +23,9 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
+  env: {
+    API_BASE_URL: 'https://api.consumet.org'
+  },
 }
 
 module.exports = nextConfig
