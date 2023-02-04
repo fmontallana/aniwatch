@@ -1,15 +1,20 @@
 'use client'
 import useDebounceValue from '@/functions/useDebounceValue'
 import { useToggle } from '@/functions/useToggle'
+import { useGlobalStore } from '@/store/globalStore'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import SearchList from './SearchList'
 
 function Navbar() {
-    const [searchTerm, setSearchTerm] = useState("")
+    //refactor to use zustand
+    // const [searchTerm, setSearchTerm] = useState("")
+    const searchTerm = useGlobalStore((state) => state.searchTerm)
+    const setSearchTerm = useGlobalStore((state) => state.setSearchTerm)
+    const setDebounce = useGlobalStore((state) => state.setDebouncedSearchTerm)
     const [showSearch, setShowSearch] = useToggle()
-    const search = useDebounceValue(searchTerm, 1000)
+    setDebounce(useDebounceValue(searchTerm, 1000))
     const router = useRouter()
 
     //auto hide search input if no value
@@ -30,14 +35,12 @@ function Navbar() {
         return () => clearTimeout(hide)
     }, [searchTerm])
 
-    const handleSearchInput = (e) => {
-        setSearchTerm(e.target.value)
-    }
+
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        setSearchTerm("")
         router.push(`/anime/${searchTerm}`)
+        setSearchTerm("")
     }
 
     return (
@@ -69,20 +72,20 @@ function Navbar() {
 
                 <Link href={'/'} className='text-2xl z-10 text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]'>aniwatch</Link>
 
-                <div className='  flex flex-1 justify-end items-center gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]' >
-                    <form onSubmit={(e) => handleSubmit(e)} className='flex justify-center items-center sm:hover:text-gray-900 gap-1 px-2 transition-all ease-in-out'>
+                <div className=' flex flex-1 justify-end items-center gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]' >
+                    <form onSubmit={(e) => handleSubmit(e)} className='flex justify-center items-center  gap-1 px-2 transition-all ease-in-out'>
                         <div className='flex justify-center items-center group'>
                             <input
-                                className='hidden group-hover:block focus:block group-focus:text-gray-900 absolute right-0 bg-slate-100 text-gray-900 px-2 h-8 w-3/6 rounded '
+                                className='hidden sm:block h-8 w-3/6 px-2 text-xs bg-transparent hover:bg-slate-100 focus:bg-slate-100 hover:text-gray-900 focus:text-gray-900 text-slate-100  absolute right-0    rounded-lg ring-2 ring-slate-100 hover:ring-slate-300 focus:ring-slate-300  outline-none transition-all ease-in-out  placeholder-slate-100 hover:placeholder-gray-900 shadow'
                                 type="text"
                                 value={searchTerm}
-                                onChange={handleSearchInput}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                placeholder='search anime'
                             />
+
                             <button
-                                type={searchTerm.length > 0 ? "submit" : "button"}
-                                className='hidden sm:block text-lg text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'>search
-                            </button>
-                            <button className='hidden sm:block' type='button'>
+                                className='hidden sm:block'
+                                type='submit'>
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     className="ionicon drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]"
@@ -144,27 +147,20 @@ function Navbar() {
                 </div>
             </div>
 
-            {/* search input on mobile */}
+            {/* search input for mobile */}
             {showSearch && <>
                 <div className='sm:hidden px-2 container flex flex-1 justify-end items-center w-full mx-auto gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] transition-all ease-in duration-1000' >
-                    {/* <form onSubmit={(e) => handleSubmit(e)} className='flex justify-center items-center w-full transition-all ease-in-out'> */}
                     <input
-                        className=' bg-slate-100 text-gray-900 px-2 h-8 w-full rounded '
+                        className=' px-2 h-8 w-full bg-transparent hover:bg-slate-100 focus:bg-slate-100 hover:text-gray-900 focus:text-gray-900 text-slate-100   rounded ring-2 ring-slate-100 hover:ring-slate-300 focus:ring-slate-300  outline-none transition-all ease-in-out  placeholder-slate-100 hover:placeholder-gray-900 shadow  '
                         type="text"
                         value={searchTerm}
-                        onChange={handleSearchInput}
-                        placeholder='search'
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                        placeholder='search anime'
                     />
-                    {/* <button
-                        className='px-2 h-8 text-sm text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)] border border-r-slate-100 rounded-r'
-                        type={searchTerm.length > 0 ? "submit" : "button"} >
-                        search
-                    </button> */}
-                    {/* </form> */}
 
                 </div>
                 <div className='sm:hidden w-full px-2 transition-all ease-in duration-1000'>
-                    <SearchList query={search} setSearchTerm={setSearchTerm} />
+                    <SearchList />
                 </div>
             </>}
         </nav>

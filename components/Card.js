@@ -1,12 +1,18 @@
 import { rgbDataURL } from "@/functions/dynamicPlaceholder"
 import { getAnimeInfo } from "@/functions/getAnimeFn"
+import { useGlobalStore } from "@/store/globalStore"
 import Image from "next/image"
 import Link from "next/link"
 import { Suspense } from "react"
 
 async function Card({ data }) {
+    const titleLanguage = await useGlobalStore.getState().titleLanguage
+    const filteredTitleFn = await useGlobalStore.getState().filterTitleLanguage
     const { id, title, image, type, episodeId, episodeTitle, episodeNumber } = data
     const { color } = await getAnimeInfo(id)
+
+    const filteredTitle = filteredTitleFn(title)
+
 
     return (
         <div className="group flex-shrink-0  max-w-[180px] rounded-lg ">
@@ -28,7 +34,7 @@ async function Card({ data }) {
                         alt={title + " thumbnail"}
                     />
 
-                    <p className=" absolute bottom-0 left-0 h-20 w-full text-xs text-white px-2 py-1 bg-gradient-to-t from-gray-900 flex items-end">{title.userPreferred}</p>
+                    <p className=" absolute bottom-0 left-0 h-20 w-full text-xs text-white px-2 py-1 bg-gradient-to-t from-gray-900 flex items-end">{filteredTitle}</p>
 
                 </div>
             </Link>

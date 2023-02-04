@@ -1,34 +1,29 @@
-export async function getAnimeCoverImage(title) {
-    const search = await fetch(`${process.env.API_BASE_URL}/anime/animepahe/${title}`)
-    const data = await search.json()
-    const id = await data?.results[0]?.id
+const JIKAN_BASE_URL = 'https://api.jikan.moe/v4'
+const CONSUMET_BASE_URL = 'https://api.consumet.org'
 
-    const info = await fetch(`${process.env.API_BASE_URL}/anime/animepahe/info/${id}`)
-    const infoData = await info.json()
 
-    // console.log(infoData)
-    // console.log('from get cover image ' + data.results[0].id)
-    return infoData.image
-}
 
 export async function getAnimeList(title, query) {
-    const search = await fetch(`${process.env.API_BASE_URL}/meta/anilist/${title}?${query}`, { next: { revalidate: 60 } })
+    const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/${title}?${query}`, { next: { revalidate: 60 } })
     const data = await search.json()
     // console.log(data)
     return data
 }
 
 export async function getAnimeInfo(id) {
-    const search = await fetch(`${process.env.API_BASE_URL}/meta/anilist/info/${id}`)
+    const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/info/${id}`)
     const data = await search.json()
     return data
 }
 
 export async function getAnimeStreamingLinks(episodeId) {
-    const search = await fetch(`${process.env.API_BASE_URL}/meta/anilist/watch/${episodeId}`)
+    const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/watch/${episodeId}`)
     const data = await search.json()
     return data
 }
 
-
-//use hooks
+export async function getAnimeInfo_MAL(id) {
+    const search = await fetch(`${JIKAN_BASE_URL}/anime/${id}`)
+    const data = await search.json()
+    return data.data
+}

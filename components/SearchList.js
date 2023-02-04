@@ -1,14 +1,18 @@
 'use client'
 import { getAnimeList } from '@/functions/getAnimeFn'
-import { useGetAnimeList } from '@/functions/useAnimeAPI'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useGlobalStore } from '@/store/globalStore'
+import { useAnimeStore } from '@/store/animeStore'
+import useDebounceValue from '@/functions/useDebounceValue'
 
-export default function SearchList({ query, setSearchTerm }) {
+export default function SearchList() {
 
-
-
+    const query = useGlobalStore((state) => state.debouncedSearchTerm) //debounce value
+    const setDebounce = useGlobalStore((state) => state.setDebouncedSearchTerm)
+    const setSearchTerm = useGlobalStore((state) => state.setSearchTerm)
+    const fetchAnimeList = useAnimeStore((state) => state.fetchAnimeList)
     const [searchResults, setSearchResults] = useState([])
     const [loading, setLoading] = useState(false)
 
@@ -22,9 +26,11 @@ export default function SearchList({ query, setSearchTerm }) {
     const getSearchResult = async (query) => {
 
         setLoading(true)
-        // const data = await useGetAnimeList(query)
+
         try {
-            const data = await getAnimeList(query)
+            //refactor to use zustand
+            // const data = await getAnimeList(query)
+            const data = await fetchAnimeList(query)
             if (data) {
                 setSearchResults(data)
                 setLoading(false)
@@ -36,6 +42,7 @@ export default function SearchList({ query, setSearchTerm }) {
 
     const handleClearSearch = () => {
         setSearchTerm("")
+        setDebounce("")
         setSearchResults([])
     }
 

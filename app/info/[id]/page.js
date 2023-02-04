@@ -2,6 +2,7 @@
 import { EpisodeThumb } from "@/components"
 import EpisodeSection from "@/components/EpisodeSection"
 import { getAnimeInfo, getAnimeList } from "@/functions/getAnimeFn"
+import { useAnimeStore } from "@/store/animeStore"
 
 import Image from "next/image"
 import Link from "next/link"
@@ -11,7 +12,9 @@ import Background from "./Background"
 
 export default async function Info({ params }) {
 
-    const data = await getAnimeInfo(params.id)
+    //refactor to use zustand
+    const data = await useAnimeStore.getState().fetchAnimeInfo(params.id)
+    // const data = await getAnimeInfo(params.id)
 
     if (data.message) {
         return <div className="h-96 grid place-items-center text-3xl font-black fs-125  text-white ">Oops... No Data Found.</div>
@@ -64,9 +67,13 @@ export default async function Info({ params }) {
 }
 
 export async function generateStaticParams() {
-    const { results: popular } = await getAnimeList('popular')
-    const { results: trending } = await getAnimeList('trending')
-    const { results: recent } = await getAnimeList('recent-episodes')
+    //refactor to use zustand
+    const { results: popular } = await useAnimeStore.getState().fetchAnimeList('popular')
+    const { results: trending } = await useAnimeStore.getState().fetchAnimeList('trending')
+    const { results: recent } = await useAnimeStore.getState().fetchAnimeList('recent-episodes')
+    // const { results: popular } = await getAnimeList('popular')
+    // const { results: trending } = await getAnimeList('trending')
+    // const { results: recent } = await getAnimeList('recent-episodes')
     const results = [...popular, ...trending, ...recent]
 
     return results.map(x => ({

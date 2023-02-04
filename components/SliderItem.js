@@ -1,10 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useGlobalStore } from '@/store/globalStore'
 
 function SliderItem({ data }) {
+    const filterTitleFn = useGlobalStore.getState().filterTitleLanguage
     const { id, title, cover, description, image } = data
-
+    const filterTitle = filterTitleFn(title)
 
     return (
         <div className="flex flex-shrink-0  items-start h-full w-full ">
@@ -24,8 +26,8 @@ function SliderItem({ data }) {
                 />
                 <div>
                     <div className="absolute bottom-0 left-0 flex flex-col justify-end items-start gap-3 h-5/6 w-full text-white pl-5 sm:pl-12 pb-10 sm:pb-5  bg-gradient-to-t from-gray-900 z-10">
-                        <h1 className={`w-5/6 sm:w-3/6 font-black text-3xl sm:text-5xl fs-125 line-clamp-2`}>{`${title.userPreferred}`}</h1>
-                        <p className="w-5/6 sm:w-3/6 text-sm sm:text-lg line-clamp-4">{description}</p>
+                        <h1 className={`w-5/6 sm:w-3/6 font-black text-2xl sm:text-5xl fs-125 line-clamp-2`}>{filterTitle}</h1>
+                        <div className="w-5/6 sm:w-3/6 text-sm line-clamp-5" dangerouslySetInnerHTML={{ __html: `${description}` }} />
                         <Link href={`/info/${id}`} >
 
                             <button className="bg-blue-800 ring ring-blue-100 py-2 px-4 font-semibold fs-100 rounded z-[14]">Watch now</button>
