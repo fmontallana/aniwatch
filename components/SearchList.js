@@ -1,11 +1,9 @@
 'use client'
-import { getAnimeList } from '@/functions/getAnimeFn'
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useGlobalStore } from '@/store/globalStore'
 import { useAnimeStore } from '@/store/animeStore'
-import useDebounceValue from '@/functions/useDebounceValue'
 
 export default function SearchList() {
 

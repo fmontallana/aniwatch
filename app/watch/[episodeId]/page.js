@@ -1,12 +1,13 @@
 
 import { PlayerSection } from '@/components';
-import { getAnimeStreamingLinks } from '@/functions/getAnimeFn'
+import { useAnimeStore } from '@/store/animeStore';
 import { notFound } from 'next/navigation'
 
 export default async function Watch({ params }) {
 
-
-    const ep = await getAnimeStreamingLinks(params.episodeId)
+    //refactored to use zustand
+    // const ep = await getAnimeStreamingLinks(params.episodeId)
+    const ep = await useAnimeStore.getState().fetchAnimeStreamingLinks(params.episodeId)
 
     if (ep.message) return notFound()
 

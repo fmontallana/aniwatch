@@ -1,5 +1,4 @@
 import { Card } from '@/components'
-import { getAnimeList } from '@/functions/getAnimeFn'
 import { useAnimeStore } from '@/store/animeStore'
 import React from 'react'
 

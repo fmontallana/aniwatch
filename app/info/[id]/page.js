@@ -1,11 +1,6 @@
 
-import { EpisodeThumb } from "@/components"
 import EpisodeSection from "@/components/EpisodeSection"
-import { getAnimeInfo, getAnimeList } from "@/functions/getAnimeFn"
 import { useAnimeStore } from "@/store/animeStore"
-
-import Image from "next/image"
-import Link from "next/link"
 import Background from "./Background"
 
 

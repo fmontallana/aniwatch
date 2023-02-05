@@ -1,15 +1,17 @@
 import { rgbDataURL } from "@/functions/dynamicPlaceholder"
-import { getAnimeInfo } from "@/functions/getAnimeFn"
+import { useAnimeStore } from "@/store/animeStore"
 import { useGlobalStore } from "@/store/globalStore"
 import Image from "next/image"
 import Link from "next/link"
-import { Suspense } from "react"
 
 async function Card({ data }) {
     const titleLanguage = await useGlobalStore.getState().titleLanguage
     const filteredTitleFn = await useGlobalStore.getState().filterTitleLanguage
     const { id, title, image, type, episodeId, episodeTitle, episodeNumber } = data
-    const { color } = await getAnimeInfo(id)
+
+    //refactor to use zustand
+    // const { color } = await getAnimeInfo(id)
+    const { color } = await useAnimeStore.getState().fetchAnimeInfo(id)
 
     const filteredTitle = filteredTitleFn(title)
 

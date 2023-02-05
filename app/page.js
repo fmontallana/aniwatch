@@ -1,9 +1,6 @@
-import { AnimeSection, Card, Ranking, Slider } from "@/components"
+import { AnimeSection, Ranking, Slider } from "@/components"
 import StoreInitializer from "@/components/StoreInitializer"
-import { getAnimeCoverImage, getAnimeList } from "@/functions/getAnimeFn"
 import { useAnimeStore } from "@/store/animeStore"
-import Image from "next/image"
-import { Suspense } from "react"
 
 export default async function Home() {
 
