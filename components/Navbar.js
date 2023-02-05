@@ -4,7 +4,7 @@ import { useToggle } from '@/functions/useToggle'
 import { useGlobalStore } from '@/store/globalStore'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import SearchList from './SearchList'
 
 function Navbar() {
@@ -52,7 +52,7 @@ function Navbar() {
 
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        className="ionicon"
+                        className="ionicon drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]"
                         viewBox="0 0 512 512"
                         width="2em"
                         height="2em"
