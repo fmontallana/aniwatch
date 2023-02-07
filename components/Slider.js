@@ -30,7 +30,7 @@ function Slider({ data: trending }) {
 
 
     return (
-        <section className="relative flex  items-center gap-5 h-96 w-full border-4 border-gray-100 rounded-lg overflow-hidden ">
+        <section className="relative flex  items-center gap-5 h-96 w-full sm:border-4 sm:border-gray-100 sm:rounded-lg ">
             <div onClick={backward} className="absolute z-[11] opacity-50 hover:opacity-100 hover:bg-gradient-to-r hover:from-gray-900 transition-all ease-in  text-white text-4xl fs-75  flex justify-start items-center cursor-pointer h-full w-1/12">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"

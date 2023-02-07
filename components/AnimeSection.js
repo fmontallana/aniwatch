@@ -10,7 +10,7 @@ function AnimeSection({ anime: animeList, section }) {
         <section className=" w-full">
             <div className="flex justify-between text-white py-2 mr-2">
                 <p className="flex-1 text-lg font-bold fs-125">{section}</p>
-                <Link href={`/anime/${trim.toLowerCase()}`} className="text-sm  sm:w-1/12 bg-gray-800 mx-1 py-1 px-2 rounded ">View All</Link>
+                <Link href={`/anime/${trim.toLowerCase()}`} className="self-end text-sm bg-gray-800 mx-1 py-1 px-2 rounded ">View All</Link>
             </div>
             <div className="flex  sm:flex-wrap gap-3 overflow-x-scroll sm:overflow-x-hidden">
                 {animeList?.map((anime) => {

@@ -67,10 +67,11 @@ function Navbar() {
                             d="M80 160h352M80 256h352M80 352h352"
                         />
                     </svg>
-                    <h1 className='hidden sm:block  text-lg text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'>menu</h1>
+                    {/* <h1 className='hidden sm:block  text-lg  drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]'>menu</h1> */}
                 </div>
 
-                <Link href={'/'} className='text-2xl z-10 text-900-125 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]'>aniwatch</Link>
+                <Link href={'/'} className='flex font-black fs-125 gap-0 text-2xl z-10 drop-shadow-[0_2px_2px_rgba(0,0,0,0.9)]'>
+                    <span className=' text-transparent bg-clip-text bg-gradient-to-t from-blue-500  to-blue-300 drop-shadow-[0_2px_2px_rgb(255, 255, 255)]'>a</span> <span className='fs-125 '>flix</span></Link>
 
                 <div className=' flex flex-1 justify-end items-center gap-1 drop-shadow-[0_2px_2px_rgba(0,0,0,0.5)]' >
                     <form onSubmit={(e) => handleSubmit(e)} className='flex justify-center items-center  gap-1 px-2 transition-all ease-in-out'>

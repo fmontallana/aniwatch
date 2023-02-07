@@ -1,6 +1,8 @@
 
 import { PlayerSection } from '@/components';
+import StoreInitializer from '@/components/StoreInitializer';
 import { useAnimeStore } from '@/store/animeStore';
+import { useGlobalStore } from '@/store/globalStore';
 import { notFound } from 'next/navigation'
 
 export default async function Watch({ params }) {
@@ -10,7 +12,6 @@ export default async function Watch({ params }) {
     const ep = await useAnimeStore.getState().fetchAnimeStreamingLinks(params.episodeId)
 
     if (ep.message) return notFound()
-
 
     const src = await ep?.sources?.filter((src, index) => {
 
@@ -22,7 +23,7 @@ export default async function Watch({ params }) {
 
     return (
         <div className='h-screen w-full'>
-            <PlayerSection src={url.url} />
+            <PlayerSection src={url?.url} />
         </div>
     )
 }

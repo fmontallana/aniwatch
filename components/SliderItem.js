@@ -10,10 +10,10 @@ function SliderItem({ data }) {
 
     return (
         <div className="flex flex-shrink-0  items-start h-full w-full ">
-            <div className="relative h-full flex-1 rounded-lg">
+            <div className="relative h-full flex-1 sm:rounded-lg">
                 {/* <img className="rounded" src="https://placewaifu.com/image/900/400" /> */}
                 <Image
-                    className='hidden sm:block rounded-lg'
+                    className='hidden sm:block sm:rounded-lg'
                     src={cover}
                     priority
                     sizes='70rem 23.5rem'

@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+import { mountStoreDevtool } from 'simple-zustand-devtools';
 
 const JIKAN_BASE_URL = 'https://api.jikan.moe/v4'
 const CONSUMET_BASE_URL = 'https://api.consumet.org'
@@ -7,12 +8,14 @@ const CONSUMET_BASE_URL = 'https://api.consumet.org'
 
 export const useAnimeStore = create((set) => ({
     animeList: [],
-    setAnimeList: (animeList) => set({ animeList }),
     animeInfo: {},
-    setAnimeInfo: (animeInfo) => set({ animeInfo }),
     animeId: '',
-    setAnimeId: (animeId) => set({ animeId }),
     malId: '',
+    selectedAnimeId: '',
+    setSelectedAnimeId: (selectedAnimeId) => set({ selectedAnimeId }),
+    setAnimeList: (animeList) => set({ animeList }),
+    setAnimeInfo: (animeInfo) => set({ animeInfo }),
+    setAnimeId: (animeId) => set({ animeId }),
     setMalId: (malId) => set({ malId }),
     fetchAnimeInfo: async (id) => {
         const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/info/${id}`)
@@ -35,3 +38,7 @@ export const useAnimeStore = create((set) => ({
         return data.data
     }
 }));
+
+if (process.env.NODE_ENV === 'development') {
+    mountStoreDevtool('AnimeStore', useAnimeStore);
+}

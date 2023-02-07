@@ -1,7 +1,7 @@
 export default function Head() {
   return (
     <>
-      <title>aniwatch | watch anime without ads</title>
+      <title>aflix | watch anime without ads</title>
       <meta content="width=device-width, initial-scale=1" name="viewport" />
       <meta name="description" content="Watch anime without disturbing ads." />
       <meta name="" ></meta>

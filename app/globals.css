@@ -3,35 +3,6 @@
 @tailwind utilities;
 
 
-.text-90-90 {
-    font-weight: 90;
-    font-stretch: 90%;
-}
-
-.text-100-100 {
-    font-weight: 100;
-    font-stretch: 100%;
-}
-
-.text-200-100 {
-    font-weight: 200;
-    font-stretch: 100%;
-}
-
-.text-200-75 {
-    font-weight: 200;
-    font-stretch: 75%;
-}
-
-.text-900-125 {
-    font-weight: 900;
-    font-stretch: 125%;
-}
-
-.fw-900 {
-    font-weight: 900;
-}
-
 
 .fs-75 {
     font-stretch: 75%;

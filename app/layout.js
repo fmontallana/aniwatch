@@ -15,7 +15,7 @@ export default function RootLayout({ children }) {
         head.js. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
       */}
       <head />
-      <body className={`bg-gray-900  ${hubotSans.className}`}>
+      <body className={`h-full bg-gray-900  ${hubotSans.className}`}>
         <h1 className="bg-slate-100 h-auto w-full px-2 py-1 animate-pulse text-xs text-center">This website is temporarily hosted in vercel. Anytime soon the website will be down.</h1>
         <Navbar />
         <Suspense fallback={<Loading />}>
