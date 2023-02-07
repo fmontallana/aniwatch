@@ -24,7 +24,6 @@ export const useAnimeStore = create((set) => ({
     },
     fetchAnimeList: async (title, query) => {
         const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/${title}?${query}`, { next: { revalidate: 60 } })
-
         const data = await search.json()
         return data
 

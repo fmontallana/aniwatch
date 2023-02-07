@@ -10,7 +10,7 @@ const triplet = (e1, e2, e3) =>
     keyStr.charAt(e3 & 63)
 
 export const rgbDataURL = (hex) =>
-    `data:image/gif;base64,R0lGODlhAQABAPAA${triplet(0, hexToRgb(hex).r, hexToRgb(hex).g) + triplet(hexToRgb(hex).b, 255, 255)
+    `data:image/gif;base64,R0lGODlhAQABAPAA${triplet(0, hexToRgb(hex || "#111827").r, hexToRgb(hex || "#111827").g) + triplet(hexToRgb(hex || "#111827").b, 255, 255)
     }/yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==`
 
 // adapted from https://stackoverflow.com/questions/5623838/rgb-to-hex-and-hex-to-rgb

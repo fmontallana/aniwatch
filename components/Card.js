@@ -18,7 +18,7 @@ async function Card({ data }) {
 
     return (
         <div className="group flex-shrink-0  max-w-[180px] rounded-lg ">
-            <Link href={`/info/${id}`}  >
+            <Link href={`/info/${id}`} prefetch={false}  >
                 {/* <h1 className="absolute top-5 left-5 font-black text-9xl text-white fs-125 italic">{rank}</h1> */}
                 <div style={{ borderColor: color }} className="relative flex justify-center rounded-lg overflow-hidden h-[255px] w-full border-b ">
                     <h1 style={{ backgroundColor: color }} className="absolute rounded right-0 text-white text-xs px-2 m-1 z-20 transition ease-in-out shadow">{episodeNumber ? "EP " + episodeNumber : type}</h1>
