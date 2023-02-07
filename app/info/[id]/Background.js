@@ -6,11 +6,7 @@ export default function Background({ cover, image, trailer }) {
 
 
 
-    const [width, setWidth] = useState(() => {
-        if (typeof window !== 'undefined') {
-            return window.innerWidth
-        }
-    })
+    const [width, setWidth] = useState(641)
 
 
     useEffect(() => {
