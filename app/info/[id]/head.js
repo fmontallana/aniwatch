@@ -3,7 +3,7 @@ import { useGlobalStore } from "@/store/globalStore";
 
 export default async function Head({ params }) {
 
-    const { title, description, cover } = await useAnimeStore.getState().fetchAnimeInfo(params.id);
+    const { title, description, cover, image } = await useAnimeStore.getState().fetchAnimeInfo(params.id);
     const filteredTitle = useGlobalStore.getState().filterTitleLanguage(title)
 
     return (
