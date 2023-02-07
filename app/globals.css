@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .fs-75 {
     font-stretch: 75%;
 }

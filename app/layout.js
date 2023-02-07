@@ -5,7 +5,7 @@ import { Footer, Navbar } from "@/components"
 import { Suspense } from "react"
 import Loading from "./loading"
 
-const hubotSans = localFont({ src: "../lib/fonts/Hubot-Sans.woff2" })
+const hubotSans = localFont({ src: "../fonts/Hubot-Sans.woff2", preload: true })
 
 export default function RootLayout({ children }) {
   return (
