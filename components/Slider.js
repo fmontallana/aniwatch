@@ -23,9 +23,7 @@ function Slider({ data: trending }) {
     useEffect(() => {
         const unsubscribe = setTimeout(forward, 5000)
 
-        return () => {
-            clearTimeout(unsubscribe)
-        }
+        return () => clearTimeout(unsubscribe)
     }, [slideCount])
 
 

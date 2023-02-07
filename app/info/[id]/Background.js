@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image"
 import { useEffect, useState } from "react";
-
-export default function Background({ cover, image }) {
+import { HLSPlayer } from "@/components"
+export default function Background({ cover, image, trailer }) {
 
 
 
@@ -29,24 +29,14 @@ export default function Background({ cover, image }) {
 
 
     return (
-        <div className={`absolute -z-10 top-0 left-0 ${width > 640 ? "h-[70vh]" : "h-[90vh]"} w-full`}>
+        <div className={`absolute -z-10 top-0 left-0 ${width > 640 ? "h-[70vh]" : "h-[90vh]"} w-full overflow-hidden`}>
             <div style={{
                 backgroundImage: `url("${width > 640 ? cover : image}")`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 backgroundPosition: "center"
-            }} className="absolute h-5/6 w-full">
-                {/* <Image
-                    src={width < 640 ? image : cover}
-                    alt={cover}
-                    sizes="1200px"
-                    fill
-                    style={{ objectFit: "cover", objectPosition: "center" }} /> */}
-
-            </div>
-            <div className=" absolute top-0 left-0 h-5/6 w-full bg-gradient-to-t from-gray-900 ">
-            </div>
-
+            }} className="absolute h-5/6 w-full" />
+            <div className=" absolute top-0 left-0 h-5/6 w-full bg-gradient-to-t from-gray-900 " />
         </div>
     )
 }

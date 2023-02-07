@@ -1,4 +1,5 @@
 
+
 import EpisodeSection from "@/components/EpisodeSection"
 import { useAnimeStore } from "@/store/animeStore"
 import { useGlobalStore } from "@/store/globalStore"
@@ -28,13 +29,15 @@ export default async function Info({ params }) {
         type,
         episodes,
         cover,
-        color
+        color,
+        trailer
     } = data
 
     const filteredTitle = filterTitleLanguage(title)
 
     return (
         <>
+
             <div className="relative container pt-36 mx-auto h-full w-full">
                 <section className=" container mx-auto relative flex flex-col justify-center sm:justify-end items-start gap-3 h-full sm:w-9/12  rounded-lg overflow-hidden px-5 pt-10 text-slate-100">
                     <h1
@@ -59,7 +62,8 @@ export default async function Info({ params }) {
                     <Ranking data={popular} />
                 </div> */}
             </div>
-            <Background cover={cover} image={image} />
+
+            <Background cover={cover} image={image} trailer={trailer} />
         </>
 
     )
