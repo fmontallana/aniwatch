@@ -31,7 +31,7 @@ export default function Background({ cover, image, trailer }) {
     return (
         <div className={`absolute -z-10 top-0 left-0 ${width > 640 ? "h-[70vh]" : "h-[90vh]"} w-full overflow-hidden`}>
             <div style={{
-                backgroundImage: `url("${width > 640 ? cover : image}")`,
+                backgroundImage: width > 640 ? `url("${cover}")` : `url("${image}")`,
                 backgroundRepeat: "no-repeat",
                 backgroundSize: "cover",
                 backgroundPosition: "center"
