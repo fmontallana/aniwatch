@@ -33,10 +33,10 @@ export default function Actor({ data, color }) {
                 </div>
 
             </div>
-            <div className="text-xs text-slate-200">
+            <div className="flex text-xs text-slate-200 pr-2">
                 <p style={{ color }} className="font-bold">{role}</p>
-                <p className="max-w-32 truncate overflow-hidden">{name?.full}</p>
-                <p className="max-w-32 truncate overflow-hidden italic">{voiceActors[0]?.name?.full}</p>
+                <p className="max-w-32 truncate overflow-x-hidden">{name?.full}</p>
+                <p className="max-w-32 truncate overflow-x-hidden italic">{voiceActors[0]?.name?.full}</p>
             </div>
 
         </div>
