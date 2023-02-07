@@ -1,12 +1,23 @@
-import React from 'react'
+'use client'
+import { useEffect, useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useGlobalStore } from '@/store/globalStore'
+import { useAnimeStore } from '@/store/animeStore'
 
 function SliderItem({ data }) {
+    const [color, setColor] = useState('')
+    const animeInfo = useAnimeStore((state) => state.fetchAnimeInfo)
     const filterTitleFn = useGlobalStore.getState().filterTitleLanguage
     const { id, title, cover, description, image } = data
     const filterTitle = filterTitleFn(title)
+
+    useEffect(() => {
+        animeInfo(data.id).then((data) => {
+            setColor(data.color)
+            console.log(data)
+        })
+    }, [data.id])
 
     return (
         <div className="flex flex-shrink-0  items-start h-full w-full ">
@@ -30,7 +41,7 @@ function SliderItem({ data }) {
                         <div className="w-5/6 sm:w-3/6 text-sm line-clamp-5" dangerouslySetInnerHTML={{ __html: `${description}` }} />
                         <Link href={`/info/${id}`} >
 
-                            <button className="bg-blue-800 ring ring-blue-100 py-2 px-4 font-semibold fs-100 rounded z-[14]">Watch now</button>
+                            <button style={{ backgroundColor: color }} className="bg-blue-800 ring ring-blue-100 py-2 px-4 font-semibold fs-100 rounded z-[14] transition ease-in">Watch now</button>
                         </Link>
                     </div>
                     <div className="absolute right-0 h-full w-full sm:w-3/12">

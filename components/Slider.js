@@ -69,8 +69,8 @@ function Slider({ data: trending }) {
                     />
                 </svg>
             </div>
-            <div className="absolute z-20 flex justify-end items-center gap-2 h-10 w-6/6 px-2 sm:px-10 right-0 bottom-0">
-                {data?.map((anime, index) => (<span key={index} className={`  h-3 ${index === slideCount ? "w-9 bg-white" : "w-3 bg-slate-400"} rounded-full transition-all ease-in-out duration-800`}></span>))}
+            <div className="absolute z-20 flex justify-end items-center gap-1 sm:gap-2 h-10 w-6/6 px-5 sm:px-10 right-0 bottom-0">
+                {data?.map((anime, index) => (<span key={index} className={`h-1  sm:h-3 ${index === slideCount ? "w-9 bg-white" : "w-3 bg-slate-400"} rounded-full transition-all ease-in-out duration-800`}></span>))}
             </div>
             <SliderItem data={data[slideCount]} />
         </section>

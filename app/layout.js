@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
       */}
       <head />
       <body className={`h-full bg-gray-900  ${hubotSans.className}`}>
-        <h1 className="bg-slate-100 h-auto w-full px-2 py-1 animate-pulse text-xs text-center">This website is temporarily hosted in vercel. Anytime soon the website will be down.</h1>
+        <h1 className="bg-slate-100 h-auto w-full px-2 py-1 animate-pulse text-xs text-center">A free hosting provider is used to host this website. This website will go offline at some point.</h1>
         <Navbar />
         <Suspense fallback={<Loading />}>
           {children}

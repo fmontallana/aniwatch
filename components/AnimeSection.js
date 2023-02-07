@@ -4,7 +4,6 @@ import Card from "./Card"
 function AnimeSection({ anime: animeList, section }) {
 
     const trim = section.split(" ").length > 1 ? section.split(" ").join("-") : section
-    console.log("🚀 ~ file: AnimeSection.js:7 ~ AnimeSection ~ trim", trim)
 
     return (
         <section className=" w-full">
