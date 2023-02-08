@@ -19,7 +19,23 @@ export const useGlobalStore = create(
         filterTitleLanguage: (title) => {
             if (get().titleLanguage === 'en') return title.english || title.userPreferred;
             if (get().titleLanguage === 'jp') return title.romaji;
-        }
+        },
+        formatDate: (date) => {
+            if (!date) return "?";
+            const start = new Date(date.year, date.month, date.day);
+            return start.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit'
+            });
+        },
+        formatNumber: (num) => {
+            const formatter = new Intl.NumberFormat('en-US', {
+                notation: 'compact',
+                compactDisplay: 'short'
+            });
+            return formatter.format(num);
+        },
     })
 
 );

@@ -10,8 +10,8 @@ export default async function Home() {
 
   //refactor to use zustand
   const { results: popular } = await useAnimeStore.getState().fetchAnimeList('popular', 'perPage=10')
-  const { results: trending } = await useAnimeStore.getState().fetchAnimeList('trending', 'perPage=15')
-  const { results: recent } = await useAnimeStore.getState().fetchAnimeList('recent-episodes', 'perPage=15')
+  const { results: trending } = await useAnimeStore.getState().fetchAnimeList('trending', 'perPage=10')
+  const { results: recent } = await useAnimeStore.getState().fetchAnimeList('recent-episodes', 'perPage=10')
 
 
 

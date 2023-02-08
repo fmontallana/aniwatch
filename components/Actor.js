@@ -22,7 +22,7 @@ export default function Actor({ data, color }) {
                 </div>
                 <div className="relative h-10 w-10 rounded-full overflow-hidden -ml-5 border-4 border-gray-900">
                     <Image
-                        src={voiceActors[0]?.image || "https://placewaifu.com/image/900/400"}
+                        src={voiceActors[0]?.image || rgbDataURL(color)}
                         alt={voiceActors[0]?.name.full || "No voice actor"}
                         size="10rem"
                         placeholder="blur"

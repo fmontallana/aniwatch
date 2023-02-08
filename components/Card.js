@@ -11,16 +11,17 @@ async function Card({ data }) {
 
     //refactor to use zustand
     // const { color } = await getAnimeInfo(id)
-    const { color } = await useAnimeStore.getState().fetchAnimeInfo(id)
+    const { color, popularity, status, genres, duration, studios, synonyms, startDate, endDate } = await useAnimeStore.getState().fetchAnimeInfo(id)
 
     const filteredTitle = filteredTitleFn(title)
-
+    const start = useGlobalStore.getState().formatDate(startDate)
+    const end = useGlobalStore.getState().formatDate(endDate)
+    const formattedPopularity = useGlobalStore.getState().formatNumber(popularity)
 
     return (
-        <div className="group flex-shrink-0  max-w-[180px] rounded-lg ">
-            <Link href={`/info/${id}`} prefetch={false}  >
-                {/* <h1 className="absolute top-5 left-5 font-black text-9xl text-white fs-125 italic">{rank}</h1> */}
-                <div style={{ borderColor: color }} className="relative flex justify-center rounded-lg overflow-hidden h-[255px] w-full border-b ">
+        <>
+            <div className="relative group flex-shrink-0 max-w-[180px] rounded-lg overflow-hidden">
+                <div style={{ borderColor: color }} className="flex-shrink-0 relative flex justify-center rounded-lg overflow-hidden h-[255px] w-full border-b ">
                     <h1 style={{ backgroundColor: color }} className="absolute rounded right-0 text-white text-xs px-2 m-1 z-20 transition ease-in-out shadow">{episodeNumber ? "EP " + episodeNumber : type}</h1>
                     <Image
                         className="transition-all ease-in-out group-hover:scale-105 group-hover:grayscale"
@@ -29,18 +30,38 @@ async function Card({ data }) {
                         blurDataURL={rgbDataURL("#1f2937")}
                         width={190}
                         height={280}
-                        // fill
-                        // sizes="11rem"
-
                         style={{ objectFit: "cover" }}
                         alt={title + " thumbnail"}
                     />
-
-                    <p className=" absolute bottom-0 left-0 h-20 w-full text-xs text-white px-2 py-1 bg-gradient-to-t from-gray-900 flex items-end">{filteredTitle}</p>
-
+                    <p className="group-hover:hidden absolute bottom-0 left-0 h-20 w-full text-xs text-white px-2 py-1 bg-gradient-to-t from-gray-900 flex items-end">{filteredTitle}</p>
                 </div>
-            </Link>
-        </div>
+
+
+                <Link className="justify-self-end" href={episodeNumber ? `/watch/${id}/${episodeId}` : `/info/${id}`} prefetch={false}  >
+                    <div style={{ borderColor: color }} className="absolute bg-gray-900/[0.8] top-0 left-0 px-2 pt-5 h-full w-full text-xs border  z-10 translate-y-full group-hover:translate-y-0 transition-transform ease-in-out duration-500 rounded-lg ">
+                        <p className="text-white">
+                            <span style={{ color }} className="text-slate-100 font-bold">Other names: </span>
+                            {synonyms?.slice(0, 2).join(" · ") || "-"}</p>
+                        <p className="text-white">
+                            <span style={{ color }} className="text-slate-100 font-bold">Studio/s: </span>
+                            {studios?.join(" · ") || "-"}</p>
+                        <p className="text-white">
+                            <span style={{ color }} className="text-slate-100 font-bold">Genre/s: </span>{genres?.join(" · ") || "-"}</p>
+                        <p className="text-white">
+                            <span style={{ color }} className="text-slate-100 font-bold">Popularity: </span>{formattedPopularity}</p>
+                        <p className="text-white">
+                            <span style={{ color }} className="text-slate-100 font-bold">Date aired: </span>{start} to {end}</p>
+                        <p className="text-white">
+                            <span style={{ color }} className="text-slate-100 font-bold">Duration: </span>{duration} min</p>
+                        <p className="text-white">
+                            <span style={{ color }} className="text-slate-100 font-bold">Status: </span>{status}</p>
+
+                        {/* <p className="text-slate-300 line-clamp-3"><span className="text-slate-100 font-bold">Description: </span>{description}</p> */}
+                    </div>
+                </Link>
+            </div>
+
+        </ >
     )
 }
 

@@ -25,12 +25,14 @@ export const useAnimeStore = create((set) => ({
     fetchAnimeList: async (title, query) => {
         if (!query) query = ''
         const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/${title}?${query}`, { next: { revalidate: 60 } })
+        console.log("feact animelist status: " + search.ok)
+        if (!search.ok) throw new Error('Error fetching anime list')
         const data = await search.json()
         return data
-
     },
     fetchAnimeStreamingLinks: async (episodeId) => {
         const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/watch/${episodeId}`)
+        if (!search.ok) throw new Error('Error fetching streaming links')
         const data = await search.json()
         return data
     },
