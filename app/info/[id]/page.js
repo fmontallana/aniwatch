@@ -8,7 +8,10 @@ import { useGlobalStore } from "@/store/globalStore"
 import Image from "next/image"
 import Link from "next/link"
 import Background from "./Background"
+import Description from "./Description"
 import Section from "./Section"
+import { IoPlay } from "react-icons/io5"
+import LinkButton from "@/components/LinkButton"
 
 
 
@@ -52,9 +55,7 @@ export default async function Info({ params }) {
                 <section className=" container mx-auto relative flex flex-col justify-center sm:justify-end items-start gap-3 h-full sm:w-9/12  rounded-lg overflow-hidden px-5 pt-10 text-slate-100">
                     <div className="w-full flex flex-col-reverse sm:flex-row justify-between items-center gap-2">
                         <h1 className={`flex-1 text-slate-50 text-2xl text-center sm:text-left sm:text-4xl font-black fs-125 line-clamp-2 sm:line-clamp-none `}> {filteredTitle} </h1>
-                        <Link href={`/watch/${id}`} prefetch={false} >
-                            <button style={{ backgroundColor: color }} className="w-26 text-xs bg-blue-800 ring ring-blue-100 py-2 px-4 font-semibold fs-100 rounded z-[14] transition ease-in">Watch now</button>
-                        </Link>
+                        <LinkButton href={`/watch/${id}`} color={color} icon={IoPlay} >Watch</LinkButton>
                     </div>
 
                     <div className="flex justify-center items-center gap-1">
@@ -73,8 +74,8 @@ export default async function Info({ params }) {
                         {studios.length === 1 && <p className="text-xs"><b>Studio:</b> {studios[0]}</p>}
                     </div>
 
-                    <p className=" text-slate-200 line-clamp-5 text-justify" dangerouslySetInnerHTML={{ __html: description }} />
-
+                    {/* <p className=" text-slate-200 line-clamp-5 text-justify" dangerouslySetInnerHTML={{ __html: description }} /> */}
+                    <Description description={description} />
                     <Section title="Characters & Voice Actors">
                         {characters?.map(x => <Actor key={x.id} data={x} color={color} />)}
                     </Section>

@@ -4,6 +4,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useGlobalStore } from '@/store/globalStore'
 import { useAnimeStore } from '@/store/animeStore'
+import { IoInformationCircle } from 'react-icons/io5'
+import LinkButton from './LinkButton'
 
 function SliderItem({ data }) {
     const [color, setColor] = useState('')
@@ -37,11 +39,8 @@ function SliderItem({ data }) {
                 <div>
                     <div className="absolute bottom-0 left-0 flex flex-col justify-end items-start gap-3 h-5/6 w-full text-white pl-5 sm:pl-12 pb-10 sm:pb-5  bg-gradient-to-t from-gray-900 z-10">
                         <h1 className={`w-5/6 sm:w-3/6 font-black text-2xl sm:text-5xl fs-125 line-clamp-2`}>{filterTitle}</h1>
-                        <div className="w-5/6 sm:w-3/6 text-sm line-clamp-5" dangerouslySetInnerHTML={{ __html: `${description}` }} />
-                        <Link href={`/info/${id}`} >
-
-                            <button style={{ backgroundColor: color }} className="bg-blue-800 w-26 text-xs ring ring-blue-100 py-2 px-4 font-semibold fs-100 rounded z-[14] transition ease-in">Watch now</button>
-                        </Link>
+                        <div className="w-5/6 sm:w-3/6 text-sm line-clamp-3" dangerouslySetInnerHTML={{ __html: `${description}` }} />
+                        <LinkButton href={`/info/${id}`} color={color} icon={IoInformationCircle} >Read more</LinkButton>
                     </div>
                     <div className="absolute right-0 h-full w-full sm:w-3/12">
                         <Image
