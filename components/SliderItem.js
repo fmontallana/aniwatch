@@ -15,7 +15,6 @@ function SliderItem({ data }) {
     useEffect(() => {
         animeInfo(data.id).then((data) => {
             setColor(data.color)
-            console.log(data)
         })
     }, [data.id])
 

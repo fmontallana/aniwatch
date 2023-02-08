@@ -11,6 +11,7 @@ export const useGlobalStore = create(
         selectedAnimeId: '',
         watch_url: '',
         watch_src: '',
+        isMobile: false,
         setSearchTerm: (searchTerm) => set({ searchTerm }),
         setSearchResults: (searchResults) => set({ searchResults }),
         setDebouncedSearchTerm: (debouncedSearchTerm) => set({ debouncedSearchTerm }),
