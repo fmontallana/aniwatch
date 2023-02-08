@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useGlobalStore } from '@/store/globalStore'
 import { useAnimeStore } from '@/store/animeStore'
 
-export default function SearchList() {
+export default function SearchList({ setShowSearch }) {
 
     const query = useGlobalStore((state) => state.debouncedSearchTerm) //debounce value
     const setDebounce = useGlobalStore((state) => state.setDebouncedSearchTerm)
@@ -39,6 +39,7 @@ export default function SearchList() {
     }
 
     const handleClearSearch = () => {
+        setShowSearch()
         setSearchTerm("")
         setDebounce("")
         setSearchResults([])

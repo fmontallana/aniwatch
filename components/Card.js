@@ -37,7 +37,7 @@ async function Card({ data }) {
                 </div>
 
 
-                <Link className="justify-self-end" href={episodeNumber ? `/watch/${id}/${episodeId}` : `/info/${id}`}  >
+                <Link className="justify-self-end" href={episodeNumber ? `/watch/${id}?${episodeId}` : `/info/${id}`}  >
                     <div style={{ borderColor: color }} className="absolute bg-gray-900/[0.8] top-0 left-0 px-2 pt-5 h-full w-full text-xs border  z-10 translate-y-full group-hover:translate-y-0 transition-transform ease-in-out duration-500 rounded-lg ">
                         <p className="text-white">
                             <span style={{ color }} className="text-slate-100 font-bold">Other names: </span>

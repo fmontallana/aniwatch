@@ -13,7 +13,7 @@ export default function Actor({ data, color }) {
                         alt={name?.full}
                         placeholder="blur"
                         blurDataURL={rgbDataURL(color)}
-                        size="10rem"
+                        sizes="10rem"
                         fill
                         style={{ objectFit: "cover" }}
 
@@ -24,7 +24,7 @@ export default function Actor({ data, color }) {
                     <Image
                         src={voiceActors[0]?.image || rgbDataURL(color)}
                         alt={voiceActors[0]?.name.full || "No voice actor"}
-                        size="10rem"
+                        sizes="10rem"
                         placeholder="blur"
                         blurDataURL={rgbDataURL(color)}
                         fill
