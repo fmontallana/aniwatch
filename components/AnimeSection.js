@@ -1,7 +1,11 @@
+import { useAnimeStore } from "@/store/animeStore"
 import Link from "next/link"
 import Card from "./Card"
 
-function AnimeSection({ anime: animeList, section }) {
+function AnimeSection({ section }) {
+    const { recent, trending } = useAnimeStore.getState()
+
+    const animeList = section === "Recent Episodes" ? recent : trending
 
     const trim = section.split(" ").length > 1 ? section.split(" ").join("-") : section
 

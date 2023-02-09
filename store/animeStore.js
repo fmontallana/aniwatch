@@ -8,11 +8,17 @@ const CONSUMET_BASE_URL = 'https://api.consumet.org'
 
 
 export const useAnimeStore = create((set) => ({
+    popular: [],
+    trending: [],
+    recent: [],
     animeList: [],
-    animeInfo: {},
+    animeInfo: [],
     animeId: '',
     malId: '',
     selectedAnimeId: '',
+    setPopular: (popular) => set({ popular }),
+    setTrending: (trending) => set({ trending }),
+    setRecent: (recent) => set({ recent }),
     setSelectedAnimeId: (selectedAnimeId) => set({ selectedAnimeId }),
     setAnimeList: (animeList) => set({ animeList }),
     setAnimeInfo: (animeInfo) => set({ animeInfo }),

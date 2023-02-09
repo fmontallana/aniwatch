@@ -2,6 +2,7 @@ import Image from "next/image"
 import { rgbDataURL } from "@/functions/dynamicPlaceholder"
 
 export default function Actor({ data, color }) {
+
     const { role, name, image, voiceActors } = data
 
     return (

@@ -21,6 +21,7 @@ export default async function Info({ params }) {
     if (!params.id) return <div className="h-96 grid place-items-center text-xl font-black fs-125  text-white ">Oops. Something went wrong. Refresh the page.</div>
     //refactor to use zustand
     const data = await useAnimeStore.getState().fetchAnimeInfo(params.id)
+    useAnimeStore.setState({ animeInfo: data })
     const { filterTitleLanguage } = useGlobalStore.getState()
     // const data = await getAnimeInfo(params.id)
 

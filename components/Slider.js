@@ -1,10 +1,13 @@
 "use client"
+import { useAnimeStore } from "@/store/animeStore"
 import { useEffect, useState } from "react"
 import SliderItem from "./SliderItem"
 
-function Slider({ data: trending }) {
+function Slider() {
 
-    const data = trending.slice(0, 6)
+    const trending = useAnimeStore(state => state.trending)
+    console.log(trending)
+    const data = trending?.slice(0, 6)
 
     const [slideCount, setSlideCount] = useState(0)
 

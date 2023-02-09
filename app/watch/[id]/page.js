@@ -11,7 +11,7 @@ async function sliceIntoChunks(arr, chunkSize) {
     if (!arr) return []
     const res = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
-        const chunk = arr.slice(i, i + chunkSize);
+        const chunk = arr?.slice(i, i + chunkSize);
         res.push(chunk);
     }
     return res;
@@ -22,6 +22,7 @@ export default async function Watch({ params }) {
     if (!params.id) return <div className="h-96 grid place-items-center text-xl font-black fs-125  text-white ">Oops. Something went wrong. Refresh the page.</div>
 
     const animeInfo = await useAnimeStore.getState().fetchAnimeInfo(params.id)
+    useAnimeStore.setState({ animeInfo })
 
     if (animeInfo.message) return <div className="h-96 grid place-items-center text-xl font-black fs-125  text-white ">Oops. Something went wrong. Refresh the page.</div>
 

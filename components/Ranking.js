@@ -1,8 +1,13 @@
+
 import { rgbDataURL } from "@/functions/dynamicPlaceholder"
+import { useAnimeStore } from "@/store/animeStore"
 import Image from "next/image"
 import Link from "next/link"
 
-export default function Ranking({ data: popular }) {
+export default function Ranking() {
+
+    const { popular } = useAnimeStore.getState()
+
     return (
         <section className=" flex-1  rounded-lg sm:px-3 py-2 space-y-3">
             <h1 className="text-white text-lg font-bold fs-125">Popular Anime</h1>
