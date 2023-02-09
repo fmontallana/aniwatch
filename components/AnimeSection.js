@@ -11,7 +11,7 @@ function AnimeSection({ anime: animeList, section }) {
                 <p className="flex-1 text-lg font-bold fs-125">{section}</p>
                 <Link href={`/anime/${trim.toLowerCase()}`} className="self-end text-sm bg-gray-800 mx-1 py-1 px-2 rounded ">View All</Link>
             </div>
-            <div className="flex  sm:flex-wrap gap-3 overflow-x-scroll sm:overflow-x-hidden">
+            <div className="snap-mandatory snap-x flex  sm:flex-wrap gap-3 overflow-x-scroll sm:overflow-x-hidden">
                 {animeList?.map((anime) => {
                     return (
                         <Card key={anime.id} data={anime} />

@@ -5,7 +5,7 @@ export default function Actor({ data, color }) {
     const { role, name, image, voiceActors } = data
 
     return (
-        <div className="h-auto w-[6.25rem] gap-2 flex-shrink-0 flex flex-col justify-start items-start">
+        <div className="snap-start h-auto w-[6.25rem] gap-2 flex-shrink-0 flex flex-col justify-start items-start">
             <div className=" flex justify-start items-end -gap-5 h-full w-auto">
                 <div className="relative h-20 w-20 rounded-full overflow-hidden">
                     <Image

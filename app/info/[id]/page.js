@@ -75,10 +75,10 @@ export default async function Info({ params }) {
                     </div>
 
                     <Description description={description} />
-                    <Section title="Characters & Voice Actors">
+                    <Section color={color} title="Characters & Voice Actors">
                         {characters?.map(x => <Actor key={x.id} data={x} color={color} />)}
                     </Section>
-                    <Section title="You may like">
+                    <Section color={color} title="You may like">
                         {recommendations?.map(x => <Card key={x.id} data={x} />)}
                     </Section>
                     {/* episodes section */}

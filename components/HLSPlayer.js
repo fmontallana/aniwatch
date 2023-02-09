@@ -8,13 +8,12 @@ import { useEffect, useState } from "react";
 
 
 
-export default function HLSPlayer({ src, provider, poster }) {
+export default function HLSPlayer() {
 
-    const ReactPlayer = provider === 'yt' ? dynamic(() => import("react-player/youtube"), { ssr: false }) :
-        dynamic(() => import("react-player/file"), { ssr: false })
+    const ReactPlayer = dynamic(() => import("react-player/file"), { ssr: false })
 
-    const searchParams = useSearchParams()
-    const cover = searchParams.get('cover')
+    const src = useGlobalStore(state => state.episodeUrl)
+    const { image } = useGlobalStore(state => state.currentEp)
 
     return (
         <>
@@ -27,10 +26,10 @@ export default function HLSPlayer({ src, provider, poster }) {
                 width="100%"
                 height="100%"
                 url={src}
-                light={cover}
+                light={image}
                 playing={true}
                 controls={true}
-                muted={true}
+                muted={false}
             />
         </>
     )

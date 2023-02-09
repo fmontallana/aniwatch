@@ -1,10 +1,6 @@
 import { AnimeSection, Ranking, Slider } from "@/components"
 import StoreInitializer from "@/components/StoreInitializer"
 import { useAnimeStore } from "@/store/animeStore"
-import { useGlobalStore } from "@/store/globalStore"
-
-
-
 
 export default async function Home() {
 
@@ -12,8 +8,6 @@ export default async function Home() {
   const { results: popular } = await useAnimeStore.getState().fetchAnimeList('popular', 'perPage=10')
   const { results: trending } = await useAnimeStore.getState().fetchAnimeList('trending', 'perPage=10')
   const { results: recent } = await useAnimeStore.getState().fetchAnimeList('recent-episodes', 'perPage=10')
-
-
 
   return (
     <main className="pb-5 w-full sm:px-0 ">
