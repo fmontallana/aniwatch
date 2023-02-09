@@ -1,8 +1,11 @@
 "use client"
+import { Card } from '@/components'
 import React, { useRef } from 'react'
 import { IoChevronBack, IoChevronForward } from 'react-icons/io5'
 
-export default function Section({ children, title, color }) {
+export default function Section({ children, title, color, data }) {
+
+
 
     const slider = useRef()
 

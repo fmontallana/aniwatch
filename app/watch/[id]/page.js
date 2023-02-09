@@ -41,12 +41,13 @@ export default async function Watch({ params }) {
                 <br />
                 <div className='lg:w-10/12 px-2 lg:px-0 mx-auto text-slate-100'>
                     <Section color={color} title="Relations" >
-                        {relations?.map((x) => (<Card key={x.id} data={x} />))}
+                        {relations?.map(x => <Card key={x.id} data={x} color={color} />)}
                     </Section>
                     <br />
-                    <Section color={color} title="Recommendations">
-                        {recommendations?.map(x => <Card key={x.id} data={x} />)}
+                    <Section color={color} title="Recommendations" >
+                        {recommendations?.map(x => <Card key={x.id} data={x} color={color} />)}
                     </Section>
+
                 </div>
 
             </div>

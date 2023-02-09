@@ -6,7 +6,6 @@ import SliderItem from "./SliderItem"
 function Slider() {
 
     const trending = useAnimeStore(state => state.trending)
-    console.log(trending)
     const data = trending?.slice(0, 6)
 
     const [slideCount, setSlideCount] = useState(0)
