@@ -29,6 +29,8 @@ export default async function Watch({ params }) {
 
     const chunkedEpisodes = await sliceIntoChunks(episodes, 10)
 
+    if (chunkedEpisodes.length === 0) return <div className="h-96 grid place-items-center text-xl font-black fs-125  text-white ">Oops. Something went wrong. Refresh the page.</div>
+
     return (
         <>
             <div className='container mx-auto h-full w-full'>
