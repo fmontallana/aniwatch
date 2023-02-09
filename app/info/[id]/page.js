@@ -12,6 +12,7 @@ import Description from "./Description"
 import Section from "./Section"
 import { IoPlay } from "react-icons/io5"
 import LinkButton from "@/components/LinkButton"
+import StoreInitializer from "@/components/StoreInitializer"
 
 
 
@@ -50,7 +51,7 @@ export default async function Info({ params }) {
 
     return (
         <>
-
+            <StoreInitializer animeInfo={data} />
             <div className="relative container pt-36 mx-auto h-full w-full">
                 <section className=" container mx-auto relative flex flex-col justify-center sm:justify-end items-start gap-3 h-full sm:w-9/12  rounded-lg overflow-hidden px-5 pt-10 text-slate-100">
                     <div className="w-full flex flex-col-reverse sm:flex-row justify-between items-center gap-2">

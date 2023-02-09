@@ -6,20 +6,18 @@ import { useAnimeStore } from "@/store/animeStore"
 import { useGlobalStore } from "@/store/globalStore"
 import { useEffect, useState } from "react"
 
-export default function VideoContainer({ animeInfo, chunks }) {
+export default function VideoContainer({ chunks }) {
 
+  const animeInfo = useAnimeStore(state => state.animeInfo)
   const [selectedChunk, setSelectedChunk] = useState(0)
   const { color, id, title, relations } = animeInfo
-  const episodeUrl = useGlobalStore(state => state.episodeUrl)
   const currentEp = useGlobalStore(state => state.currentEp)
   const setEpisodeUrl = useGlobalStore(state => state.setEpisodeUrl)
   const fetchAnimeStreamingLinks = useAnimeStore(state => state.fetchAnimeStreamingLinks)
   const formattedDate = new Date(currentEp?.airDate).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })
 
   useEffect(() => {
-    console.log(relations)
     fetchAnimeStreamingLinks(currentEp.id).then(res => {
-      console.log(res)
       setEpisodeUrl(res.sources[0].url)
     })
   }, [currentEp])

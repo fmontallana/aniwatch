@@ -35,8 +35,8 @@ export default async function Watch({ params }) {
         <>
             <div className='container mx-auto h-full w-full'>
                 {/* <PlayerSection src={url?.url} /> */}
-                <StoreInitializer currentEp={episodes[0]} />
-                <VideoContainer animeInfo={animeInfo} chunks={chunkedEpisodes} />
+                <StoreInitializer animeInfo={animeInfo} currentEp={episodes[0]} />
+                <VideoContainer chunks={chunkedEpisodes} />
                 <br />
                 <div className='lg:w-10/12 px-2 lg:px-0 mx-auto text-slate-100'>
                     <Section color={color} title="Relations" >

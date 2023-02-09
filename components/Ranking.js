@@ -8,7 +8,7 @@ export default function Ranking({ data: popular }) {
             <h1 className="text-white text-lg font-bold fs-125">Popular Anime</h1>
             {/* list */}
             <ul className="flex flex-wrap justify-start items-center gap-x-2 sm:block w-full text-white">
-                {popular.map((anime, index) => {
+                {popular?.map((anime, index) => {
                     return (
                         <Link key={anime.id} className={`relative flex-shrink-0 cursor-pointer flex justify-center items-center h-16 w-[46vw] sm:w-full gap-1 rounded overflow-hidden group z-10`} href={`/info/${anime.id}`}>
 
