@@ -18,9 +18,12 @@ async function sliceIntoChunks(arr, chunkSize) {
 
 export default async function Watch({ params }) {
 
-    if (params.id === undefined) return notFound()
+    if (!params.id) return <div className="h-96 grid place-items-center text-xl font-black fs-125  text-white ">Oops. Something went wrong. Refresh the page.</div>
+
     const animeInfo = await useAnimeStore.getState().fetchAnimeInfo(params.id)
-    if (animeInfo.message) return notFound()
+
+    if (animeInfo.message) return <div className="h-96 grid place-items-center text-xl font-black fs-125  text-white ">Oops. Something went wrong. Refresh the page.</div>
+
     const { episodes, cover, image, color, id, relations, recommendations } = animeInfo
 
     const chunkedEpisodes = await sliceIntoChunks(episodes, 10)

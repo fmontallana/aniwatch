@@ -20,7 +20,7 @@ export const useAnimeStore = create((set) => ({
     fetchAnimeInfo: async (id) => {
         if (!id) return { message: "no id" }
         const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/info/${id}`)
-        if (!search.ok) throw new Error('Error fetching anime info')
+        if (!search.ok) return [{ message: "error fetching anime info" }]
         const data = await search.json()
         return data
     },
@@ -28,13 +28,13 @@ export const useAnimeStore = create((set) => ({
         if (!query) query = ''
         const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/${title}?${query}`, { next: { revalidate: 60 } })
         // console.log("fetch anime list status: " + search.ok)
-        if (!search.ok) throw new Error('Error fetching anime list')
+        if (!search.ok) return [{ message: "error fetching anime list" }]
         const data = await search.json()
         return data
     },
     fetchAnimeStreamingLinks: async (episodeId) => {
         const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/watch/${episodeId}`)
-        if (!search.ok) throw new Error('Error fetching streaming links')
+        if (!search.ok) return [{ message: "error fetching anime streaming links" }]
         const data = await search.json()
         return data
     },
