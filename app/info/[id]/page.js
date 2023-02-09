@@ -55,7 +55,7 @@ export default async function Info({ params }) {
                 <section className=" container mx-auto relative flex flex-col justify-center sm:justify-end items-start gap-3 h-full sm:w-9/12  rounded-lg overflow-hidden px-5 pt-10 text-slate-100">
                     <div className="w-full flex flex-col-reverse sm:flex-row justify-between items-center gap-2">
                         <h1 className={`flex-1 text-slate-50 text-2xl text-center sm:text-left sm:text-4xl font-black fs-125 line-clamp-2 sm:line-clamp-none `}> {filteredTitle} </h1>
-                        <LinkButton href={`/watch/${id}`} color={color} icon={IoPlay} >Watch</LinkButton>
+                        <LinkButton href={`/watch/${id}`} prefetch={false} color={color} icon={IoPlay} >Watch</LinkButton>
                     </div>
 
                     <div className="flex justify-center items-center gap-1">
