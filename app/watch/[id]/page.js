@@ -5,6 +5,7 @@ import { Card } from '@/components';
 import StoreInitializer from '@/components/StoreInitializer';
 import { useAnimeStore } from '@/store/animeStore';
 import VideoContainer from './VideoContainer';
+import { notFound } from 'next/navigation';
 
 async function sliceIntoChunks(arr, chunkSize) {
     const res = [];
@@ -17,7 +18,9 @@ async function sliceIntoChunks(arr, chunkSize) {
 
 export default async function Watch({ params }) {
 
+    if (params.id === undefined) return notFound()
     const animeInfo = await useAnimeStore.getState().fetchAnimeInfo(params.id)
+    if (animeInfo.message) return notFound()
     const { episodes, cover, image, color, id, relations, recommendations } = animeInfo
 
     const chunkedEpisodes = await sliceIntoChunks(episodes, 10)
