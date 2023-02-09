@@ -8,6 +8,7 @@ import VideoContainer from './VideoContainer';
 import { notFound } from 'next/navigation';
 
 async function sliceIntoChunks(arr, chunkSize) {
+    if (!arr) return []
     const res = [];
     for (let i = 0; i < arr.length; i += chunkSize) {
         const chunk = arr.slice(i, i + chunkSize);

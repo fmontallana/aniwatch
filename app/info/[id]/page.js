@@ -70,8 +70,8 @@ export default async function Info({ params }) {
                     </div>
                     <div className="flex flex-col gap-1">
                         <p className="text-xs"><b>Category:</b> {genres?.join(" · ")}</p>
-                        {studios.length > 1 && <p className="text-xs"><b>Studio:</b> {studios?.join(" · ")}</p>}
-                        {studios.length === 1 && <p className="text-xs"><b>Studio:</b> {studios[0]}</p>}
+                        {studios?.length > 1 && <p className="text-xs"><b>Studio:</b> {studios?.join(" · ")}</p>}
+                        {studios?.length === 1 && <p className="text-xs"><b>Studio:</b> {studios[0]}</p>}
                     </div>
 
                     <Description description={description} />
@@ -92,15 +92,15 @@ export default async function Info({ params }) {
     )
 }
 
-export async function generateStaticParams() {
-    //refactor to use zustand
-    const { results: popular } = await useAnimeStore.getState().fetchAnimeList('popular', 'perPage=10')
-    const { results: trending } = await useAnimeStore.getState().fetchAnimeList('trending', 'perPage=10')
-    // const { results: recent } = await useAnimeStore.getState().fetchAnimeList('recent-episodes', 'perPage=10')
-    const results = [...popular, ...trending]
-    // const results = popular
+// export async function generateStaticParams() {
+//     //refactor to use zustand
+//     const { results: popular } = await useAnimeStore.getState().fetchAnimeList('popular', 'perPage=10')
+//     const { results: trending } = await useAnimeStore.getState().fetchAnimeList('trending', 'perPage=10')
+//     // const { results: recent } = await useAnimeStore.getState().fetchAnimeList('recent-episodes', 'perPage=10')
+//     const results = [...popular, ...trending]
+//     // const results = popular
 
-    return results.map(x => ({
-        id: x.id.toString()
-    }))
-}
+//     return results.map(x => ({
+//         id: x.id.toString()
+//     }))
+// }

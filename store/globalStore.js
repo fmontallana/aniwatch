@@ -19,8 +19,8 @@ export const useGlobalStore = create(
         setDebouncedSearchTerm: (debouncedSearchTerm) => set({ debouncedSearchTerm }),
         setTitleLanguage: (titleLanguage) => set({ titleLanguage }),
         filterTitleLanguage: (title) => {
-            if (get().titleLanguage === 'en') return title.english || title.userPreferred;
-            if (get().titleLanguage === 'jp') return title.romaji;
+            if (get().titleLanguage === 'en') return title?.english || title?.userPreferred || null;
+            if (get().titleLanguage === 'jp') return title?.romaji || null;
         },
         formatDate: (date) => {
             if (!date) return "?";
