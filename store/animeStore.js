@@ -26,7 +26,7 @@ export const useAnimeStore = create((set) => ({
     setMalId: (malId) => set({ malId }),
     fetchAnimeInfo: async (id) => {
         if (!id) return { message: "no id" }
-        const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/info/${id}`)
+        const search = await fetch(`${CONSUMET_BASE_URL}/meta/anilist/info/${id}`, { next: { revalidate: 60 } })
         if (!search.ok) return [{ message: "error fetching anime info" }]
         const data = await search.json()
         return data
