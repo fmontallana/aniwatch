@@ -18,7 +18,7 @@ export default function HLSPlayer() {
     return (
         <>
             <ReactPlayer
-                onClick={() => window.open(src, "_blank")}
+                // onClick={() => window.open(src, "_blank")}
                 config={{
                     file: {
                         forceHLS: true,
