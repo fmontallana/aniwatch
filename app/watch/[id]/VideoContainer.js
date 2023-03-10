@@ -1,7 +1,7 @@
 "use client"
 
 import Section from "@/app/info/[id]/Section"
-import { Card, EpisodeThumb, PlayerSection } from "@/components"
+import { Card, EpisodeThumb, HLSPlayer, PlayerSection } from "@/components"
 import { useAnimeStore } from "@/store/animeStore"
 import { useGlobalStore } from "@/store/globalStore"
 import { useEffect, useState } from "react"
@@ -16,9 +16,11 @@ export default function VideoContainer({ chunks }) {
   const fetchAnimeStreamingLinks = useAnimeStore(state => state.fetchAnimeStreamingLinks)
   const formattedDate = new Date(currentEp?.airDate).toLocaleDateString('en-US', { year: 'numeric', month: '2-digit', day: '2-digit' })
 
+
   useEffect(() => {
     fetchAnimeStreamingLinks(currentEp.id).then(res => {
-      setEpisodeUrl(res.sources[0].url)
+      // setEpisodeUrl(res.sources[0].url)
+      setEpisodeUrl(res.headers.Referer)
     })
   }, [currentEp])
 
@@ -27,7 +29,9 @@ export default function VideoContainer({ chunks }) {
       {/* player */}
       <div className="w-full flex flex-col lg:flex-row justify-start items-start gap-2">
         <div style={{ borderColor: color || "#e7e7e7" }} className={`w-full lg:w-8/12 rounded-lg overflow-hidden border sm:border-2 aspect-video`}>
-          <PlayerSection />
+          <PlayerSection>
+            <HLSPlayer />
+          </PlayerSection>
         </div>
         <div className="w-full lg:w-4/12 h-full flex lg:flex-row flex-col-reverse justify-start items-start gap-2 ">
           {/* episode thumbnails */}

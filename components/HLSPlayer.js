@@ -12,12 +12,13 @@ export default function HLSPlayer() {
 
     const ReactPlayer = dynamic(() => import("react-player/file"), { ssr: false })
 
-    const src = useGlobalStore(state => state.episodeUrl)
+    const src = useGlobalStore(state => state.episodeUrl)//tempo streaming fix: changed to referer link
     const { image } = useGlobalStore(state => state.currentEp)
 
     return (
         <>
             <ReactPlayer
+                onClick={() => window.open(src, "_blank")}
                 config={{
                     file: {
                         forceHLS: true,
