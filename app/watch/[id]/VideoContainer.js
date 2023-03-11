@@ -19,8 +19,8 @@ export default function VideoContainer({ chunks }) {
 
   useEffect(() => {
     fetchAnimeStreamingLinks(currentEp.id).then(res => {
-      // setEpisodeUrl(res.sources[0].url)
-      setEpisodeUrl(res.headers.Referer)
+      setEpisodeUrl(res.sources[0].url)
+      // setEpisodeUrl(res.headers.Referer)
     })
   }, [currentEp])
 
